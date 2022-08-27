@@ -1,5 +1,7 @@
 FROM debian:latest
 
+ARG OPENWORLD_RELEASE_VERSION='1.4.0'
+
 RUN apt-get update && \ 
     apt-get -y upgrade && \
     apt-get install wget curl unzip libicu67 -y
@@ -11,7 +13,7 @@ RUN apt-get update && \
     apt-get install apt-transport-https dotnet-runtime-3.1 -y && \
     useradd -m openworldserver && \
     cd /home/openworldserver && \
-    wget https://github.com/TastyLollipop/OpenWorld/releases/download/1.4.0/LinuxX64.zip && \
+    wget https://github.com/TastyLollipop/OpenWorld/releases/download/${OPENWORLD_RELEASE_VERSION}/LinuxX64.zip && \
     unzip LinuxX64.zip && \
     rm LinuxX64.zip && \
     chmod +x Open\ World\ Server && \
