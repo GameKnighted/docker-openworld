@@ -17,7 +17,7 @@ To configure automatic mod list management from steam workshop, create a mods.tx
 
 ### Start
 
-`docker-compose.yml` is the easiest start.
+`compose.yml` is the easiest start.
 Clone this repo, create your modlist, and run `docker-compose up -d`.
 
 Docker will publish TCP 25555 so NAT forward the port as you see fit.
