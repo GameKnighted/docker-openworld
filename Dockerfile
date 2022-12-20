@@ -19,6 +19,11 @@ RUN apt-get update && \
     chmod +x Open\ World\ Server && \
     mv Open\ World\ Server OpenWorldServer && \
     chown -R openworldserver:openworldserver /home/openworldserver
-USER openworldserver
-WORKDIR /home/openworldserver
-ENTRYPOINT ./OpenWorldServer
+
+USER container
+ENV  USER=container HOME=/home/container
+
+WORKDIR /home/container
+
+COPY ./entrypoint.sh /entrypoint.sh
+CMD ["/bin/bash", "/entrypoint.sh"]
