@@ -1,6 +1,11 @@
 FROM debian:latest
 
-ARG OPENWORLD_RELEASE_VERSION='1.4.0'
+MAINTAINER Pterodactyl Software, <support@pterodactyl.io>
+
+RUN apk add --no-cache --update curl ca-certificates openssl git tar bash sqlite fontconfig \
+    && adduser --disabled-password --home /home/container container
+
+ARG OPENWORLD_RELEASE_VERSION='1.4.2'
 
 RUN apt-get update && \ 
     apt-get -y upgrade && \
