@@ -5,7 +5,7 @@ services:
     tty: true
     stdin_open: true
     volumes:
-      - openworld:/home/openworldserver/
+      - openworld:/home/container/
     ports:
       - 25555:25555
 
