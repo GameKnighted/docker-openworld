@@ -16,14 +16,14 @@ RUN rm packages-microsoft-prod.deb
 RUN apt-get update && \
     apt-get -y upgrade && \
     apt-get install apt-transport-https dotnet-runtime-3.1 -y && \
-    useradd -m openworldserver && \
-    cd /home/openworldserver && \
+    useradd -m container && \
+    cd /home/container && \
     wget https://github.com/TastyLollipop/OpenWorld/releases/download/${OPENWORLD_RELEASE_VERSION}/LinuxX64.zip && \
     unzip LinuxX64.zip && \
     rm LinuxX64.zip && \
     chmod +x Open\ World\ Server && \
     mv Open\ World\ Server OpenWorldServer && \
-    chown -R openworldserver:openworldserver /home/openworldserver
+    chown -R container:container /home/container
 
 USER container
 ENV  USER=container HOME=/home/container
